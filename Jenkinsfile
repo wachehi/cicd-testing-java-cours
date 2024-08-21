@@ -71,8 +71,8 @@ def imagePrune(containerName) {
 }
 
 def imageBuild(containerName, tag) {
-    sh "docker build -t $containerName:$tag  --pull --no-cache ."
-    echo "Image build complete"
+    sh "docker build -t $containerName:$tag  --pull --no-cache ."  //--no-cache all pour dire exécuter TOUTES les étapes sans cache, que cela semble inutile ou non...
+    echo "Image build complete"                                   //docker build --no-cache . Cet indicateur indique au démon Docker d'ignorer le cache lors d'une construction Docker et d'exécuter chaque étape du Dockerfile./
 }
 
 def pushToImage(containerName, tag, dockerUser, dockerPassword) {
